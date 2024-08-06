@@ -1,19 +1,22 @@
 //Discount Eligibility Program
 
-checkEligibility(); {
-    const age = document.getElementById('age').nodeValue;
-    const isMember = document.getElementById('member').ariaChecked;
+function checkEligibility() {
+    const ageInPut = document.getElementById('age');
+    const isMember = document.getElementById('member');
     const resultElement = document.getElementById('result');
-
-    let result='';
+  
+    const age = parseInt(ageInPut.value, 10);
+    const MemberChecked = isMember.checked;
+    
+    let discountMessage; 
 
     if(age >= 65) {
-        result = 'Eligible for Senior discount';
-    } else if (age >= 18 && isMember) {
-        result = 'Eligible for Member discount';
+        discountMessage = 'Eligible for Senior discount';
+    } else if (age >= 18 && MemberChecked) {
+        discountMessage = 'Eligible for Member discount';
     }else {
-        result = 'Not Eligible for any discount';
+        discountMessage = 'Not Eligible for any discount';
     }
 
-    resultElement.textContent = result;
+    resultElement.textContent = discountMessage;
 };
